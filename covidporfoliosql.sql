@@ -14,11 +14,7 @@ order by 1,2
 select * from portofolioproject1..coviddeath$
   where continent is not null
 
---Select location, date, total_cases,total_deaths, 
---(CONVERT(float, total_deaths) / NULLIF(CONVERT(float, total_cases), 0)) * 100 AS Deathpercentage
---from portofolioproject1..coviddeath$
---where location like '%chad%'
---order by 1,2
+
 --shows likehood of dying if you contract covid in your contry
 Select location, date, total_cases,total_deaths, 
 (CONVERT(float, total_deaths) / NULLIF(CONVERT(float, total_cases), 0)) * 100 AS Deathpercentage
@@ -34,11 +30,7 @@ from portofolioproject1..coviddeath$
 where location like '%china%'
 order by 1,2
 
---Select location, date, population, total_cases,
---(CONVERT(float, total_cases) / NULLIF(CONVERT(float, population), 0)) * 100 AS casesperpopulationpercentage
---from portofolioproject1..coviddeath$
---where location like '%chad%'
---order by 1,2
+
 --contry with hiht infection rate
 
 Select location, population, max(total_cases) as highestinfectioncontry,
@@ -64,13 +56,6 @@ group by continent
 order by totaldeaths  desc
 
 
---location
---Select location,max (cast(total_deaths as int )) as totaldeaths
---from portofolioproject1..coviddeath$
-----where location like '%united kingdom%'
---  where continent is  null
---group by location
---order by totaldeaths  desc
 
 --showing contient with death
 Select continent,max (cast(total_deaths as int )) as totaldeaths
